@@ -80,11 +80,11 @@ function Register() {
                     />
                 </div>
                 <button
-  type="submit"
-  className="btn w-full bg-white text-black hover:bg-gray-200 border-none text-lg font-semibold"
->
-  Register
-</button>
+                    type="submit"
+                    className="btn w-full bg-white text-black hover:bg-gray-200 border-none text-lg font-semibold"
+                >
+                    Register
+                </button>
 
                 <div className="divider text-gray-500 my-6">OR</div>
 

@@ -1,6 +1,9 @@
 import { Menu, House, NotebookPen, Plus } from "lucide-react";
-
+import {NavLink, useNavigate} from 'react-router-dom'
+import { useAuth } from "../context/AuthContext";
 export default function Navbar() {
+    const {user,logout}=useAuth();
+    const navigate=useNavigate()
     return (
         <div className="drawer bg-black">
             <input id="mobile-drawer" type="checkbox" className="drawer-toggle" />
@@ -21,21 +24,65 @@ export default function Navbar() {
 
                     <div className="navbar-center hidden md:flex">
                         <ul className="menu menu-horizontal gap-2">
-                            <li><a>Home</a></li>
-                            <li><a>Blogs</a></li>
-                            <li><a>Create</a></li>
+                            <li>
+                                <NavLink
+                                    to="/"
+                                    className={({ isActive }) =>
+                                        `rounded-none border-b-2 ${isActive
+                                            ? "border-white"
+                                            : "border-transparent"
+                                        }`
+                                    }
+                                >
+                                    Home
+                                </NavLink>
+                            </li>
+
+                            <li>
+                                <NavLink
+                                    to="/blogs"
+                                    className={({ isActive }) =>
+                                        `rounded-none border-b-2 ${isActive
+                                            ? "border-white"
+                                            : "border-transparent"
+                                        }`
+                                    }
+                                >
+                                    Blogs
+                                </NavLink>
+                            </li>
+
+                            <li>
+                                <NavLink
+                                    to="/create"
+                                    className={({ isActive }) =>
+                                        `rounded-none border-b-2 ${isActive
+                                            ? "border-white"
+                                            : "border-transparent"
+                                        }`
+                                    }
+                                >
+                                    Create
+                                </NavLink>
+                            </li>
                         </ul>
                     </div>
 
                     <div className="navbar-end gap-6">
-                        <div className="avatar">
+                        {user ? (<><div className="avatar">
                             <div className="w-10 rounded-full">
-                                <img src="https://i.pravatar.cc/100?img=5" alt="Profile" />
+                                <img src={user?.user_metadata?.avatar_url} alt="Profile" />
                             </div>
                         </div>
-                        <button className="btn btn-sm bg-red-700 text-md hidden md:inline-flex">
+                        <button onClick={logout} className="btn btn-sm bg-red-700 text-md hidden md:inline-flex">
                             Logout
+                        </button></>):(
+                           
+                            <button onClick={()=>navigate('/login')} className="btn btn-sm bg-red-700 text-md hidden md:inline-flex">
+                            Login
                         </button>
+                          
+                        )}
                     </div>
 
                 </div>

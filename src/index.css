@@ -2,3 +2,4 @@
 @plugin "daisyui" {
   exclude: rootscrollgutter, rootcolor;
 }
+@plugin "@tailwindcss/typography";

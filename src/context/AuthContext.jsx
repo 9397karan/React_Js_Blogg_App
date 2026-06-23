@@ -57,7 +57,7 @@ export const AuthProvider=({children})=>{
       subscription.unsubscribe();
     };
   }, []);
-console.log(session)
+console.log("user:",user?.user_metadata?.avatar_url)
     return (
         <AuthContext.Provider value={{register,login,logout,session,user,loading}}>
             {children}
