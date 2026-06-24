@@ -54,27 +54,22 @@ A modern full-stack blogging platform built with **React**, **Supabase**, **Tail
 
 ---
 
-# 📸 Screenshots
+## 📸 Screenshots
 
+### 🏠 Home Page
+![Home Page](./screenshots/home.png)
 
-* Home Page
-[!Home]("./screenshots/home.png")
+### ✍️ Create Blog
+![Create Blog](./screenshots/create.png)
 
-* Create Blog
-[!Home]("./screenshots/create.png")
+### 📊 Dashboard Preview
+![Dashboard Preview](./screenshots/dashboard.png)
 
-* Dashboard Preview
-[!Home]("./screenshots/dashboard.png")
+### 📖 Blog Details
+![Blog Details](./screenshots/blog.png)
 
-
-* Blog Details
-[!Home]("./screenshots/blog.png")
-
-* Mobile Preview
-[!Home]("./screenshots/mobile.png")
-
-
----
+### 📱 Mobile Preview
+![Mobile Preview](./screenshots/mobile.png)
 
 # 📂 Folder Structure
 
