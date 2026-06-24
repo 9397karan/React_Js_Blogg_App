@@ -1,16 +1,195 @@
-# React + Vite
+# 📝 React Blog App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern full-stack blogging platform built with **React**, **Supabase**, **Tailwind CSS**, and **TipTap**. This project was created to strengthen core full-stack development fundamentals by implementing authentication, CRUD operations, image uploads, and a rich text editor.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+👉 https://react-js-blogg-app.onrender.com
 
-## React Compiler
+## 💻 GitHub Repository
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+👉 https://github.com/9397karan/React_Js_Blogg_App
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# ✨ Features
+
+* 🔐 Email & Password Authentication
+* 🔑 Google OAuth Login
+* ✍️ Rich Text Editor (TipTap)
+* 📝 Create, Read, Update & Delete Blogs
+* 🖼️ Upload Cover Images
+* 🏷️ Categories & Tags
+* 📱 Live Mobile Preview Before Publishing
+* ⏱️ Automatic Read Time & Word Count
+* 🔒 Protected Routes
+* 👤 User Profiles
+* 📖 Responsive Blog Detail Page
+* ☁️ Supabase Storage
+* 🗄️ Supabase Database
+* 🛡️ Row Level Security (RLS)
+
+---
+
+# 🛠️ Tech Stack
+
+### Frontend
+
+* React.js
+* React Router DOM
+* Tailwind CSS
+* DaisyUI
+* TipTap Editor
+* Lucide React Icons
+
+### Backend
+
+* Supabase Authentication
+* Supabase Database
+* Supabase Storage
+
+### Deployment
+
+* Render
+
+---
+
+# 📸 Screenshots
+
+
+* Home Page
+[!Home]("./screenshots/home.png")
+
+* Create Blog
+[!Home]("./screenshots/create.png")
+
+* Dashboard Preview
+[!Home]("./screenshots/dashboard.png")
+
+
+* Blog Details
+[!Home]("./screenshots/blog.png")
+
+* Mobile Preview
+[!Home]("./screenshots/mobile.png")
+
+
+---
+
+# 📂 Folder Structure
+
+```text
+src/
+│
+├── components/
+│   ├── Navbar
+│   ├── PhoneMockup
+│   ├── RichTextEditor
+│
+├── context/
+│   └── AuthContext
+│
+├── pages/
+│   ├── Home
+│   ├── Blogs
+│   ├── BlogDetails
+│   ├── CreateBlog
+│   ├── EditBlog
+│   ├── Login
+│   └── Register
+│
+├── services/
+│   └── supabase.js
+│
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+# ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/9397karan/React_Js_Blogg_App.git
+```
+
+Go inside the project
+
+```bash
+cd React_Js_Blogg_App
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+
+
+# 📚 What I Learned
+
+Through this project, I strengthened my understanding of:
+
+* React Hooks
+* State Management
+* React Router
+* Authentication
+* Google OAuth
+* CRUD Operations
+* Protected Routes
+* Rich Text Editing
+* Image Uploads
+* Supabase Storage
+* Database Design
+* Row Level Security (RLS)
+* Responsive UI Design
+* Deployment on Render
+
+---
+
+# 🔮 Future Improvements
+
+* ❤️ Like System
+* 💬 Comments
+* 🔍 Search Blogs
+* 📂 Filter by Category
+* 🌙 Dark/Light Theme
+* 📤 Social Sharing
+* 🔖 Bookmark Blogs
+* 🤖 AI Blog Generation
+* 📈 Blog Analytics
+
+---
+
+# 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome.
+
+Feel free to fork the repository and submit a pull request.
+
+---
+
+
+
+## 👨‍💻 Author
+
+**Karan Raj Chauhan**
+
+GitHub: https://github.com/9397karan/React_Js_Blogg_App
+
+LinkedIn: *https://www.linkedin.com/in/karanraj-chauhan-98a26a2a4/*
+
+---
+
+⭐ If you found this project helpful, consider giving it a star on GitHub!
