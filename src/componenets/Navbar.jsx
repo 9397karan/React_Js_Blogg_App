@@ -99,7 +99,7 @@ export default function Navbar() {
       {/* Desktop only */}
       <button
         onClick={logout}
-        className="btn btn-sm bg-red-700 hidden md:inline-flex"
+        className="btn btn-sm bg-red-700  md:inline-flex"
       >
         Logout
       </button>
