@@ -7,6 +7,8 @@ import Blogs from './pages/Blogs'
 import CreateBlog from './pages/CreateBlog'
 import ProtectedRoute from "./services/ProtectedRoute"
 import BlogDetails from "./pages/BlogDetails"
+import Dashboard from "./pages/Dashboard"
+import EditBlog from "./pages/EditBlog"
 
 function App() {
 
@@ -20,7 +22,9 @@ function App() {
         <Route element={<ProtectedRoute/>}>
         <Route path="/blogs" element={<Blogs/>}/>
         <Route path="/create" element={<CreateBlog/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/blog/:id" element={<BlogDetails/>}/>
+        <Route path="/edit-blog/:id" element={<EditBlog />} />
         </Route>
       </Routes>
     </>

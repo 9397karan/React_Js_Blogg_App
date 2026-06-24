@@ -1,4 +1,4 @@
-import { Menu, House, NotebookPen, Plus } from "lucide-react";
+import { Menu, House, NotebookPen, Plus, LayoutDashboard } from "lucide-react";
 import {NavLink, useNavigate} from 'react-router-dom'
 import { useAuth } from "../context/AuthContext";
 export default function Navbar() {
@@ -65,6 +65,19 @@ export default function Navbar() {
                                     Create
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink
+                                    to="/dashboard"
+                                    className={({ isActive }) =>
+                                        `rounded-none border-b-2 ${isActive
+                                            ? "border-white"
+                                            : "border-transparent"
+                                        }`
+                                    }
+                                >
+                                    Dashboard
+                                </NavLink>
+                            </li>
                         </ul>
                     </div>
 
@@ -118,6 +131,12 @@ export default function Navbar() {
                         <a>
                             <Plus size={18} />
                             Create
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <LayoutDashboard size={18}/>
+                            Dashboard
                         </a>
                     </li>
                     <div className="divider"></div>

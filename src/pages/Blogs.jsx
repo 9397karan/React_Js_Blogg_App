@@ -9,6 +9,7 @@ export default function Blogs() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [search, setSearch] = useState("");
+  const [selected,setSelected]=useState("All")
 
   useEffect(() => {
     let isMounted = true;
@@ -42,19 +43,30 @@ export default function Blogs() {
     }
 
     fetchBlogs();
-
+   
     return () => {
       isMounted = false;
     };
   }, []);
+  const categories=["All",...new Set(blogs.map((b)=>b.category).filter(Boolean))]
+  
 
-  const filteredBlogs = useMemo(() => {
-    const query = search.trim().toLowerCase();
-    if (!query) return blogs;
-    return blogs.filter((blog) =>
-      blog.title?.toLowerCase().includes(query)
-    );
-  }, [blogs, search]);
+ const filteredBlogs = useMemo(() => {
+  return blogs.filter((blog) => {
+    const matchesSearch =
+      !search ||
+      blog.title?.toLowerCase().includes(search.toLowerCase());
+
+    const matchesCategory =
+      selected === "All" ||
+      blog.category?.toLowerCase() === selected.toLowerCase();
+
+    return matchesSearch && matchesCategory;
+  });
+}, [blogs, search, selected]);
+
+
+  
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -92,6 +104,17 @@ export default function Blogs() {
             >
               <X size={18} />
             </button>
+          )}
+          {categories.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-6">
+              {categories.map((category) => (
+                <button key={category} onClick={()=>setSelected(category)}>
+                  <span  className={`badge badge-ghost  p-4 text-md ${selected == category ?"bg-blue-700":""}`}>
+                  {category}
+                </span>
+                </button>
+              ))}
+            </div>
           )}
         </div>
 
