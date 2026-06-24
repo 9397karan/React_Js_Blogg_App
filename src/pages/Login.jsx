@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { supabase } from "../services/supabase";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const {login}=useAuth()
+    const navigate=useNavigate()
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -20,7 +22,7 @@ function Login() {
             return
         }
         if (data) {
-            alert("logged")
+           navigate('/') 
         }
     };
 

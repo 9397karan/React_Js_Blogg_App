@@ -13,7 +13,7 @@ export const AuthProvider=({children})=>{
             email,password,
             options:{
                 data:{
-                    full_name
+                    full_name:name
                 }
             }
         })

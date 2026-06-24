@@ -1,5 +1,5 @@
 import { Menu, House, NotebookPen, Plus, LayoutDashboard } from "lucide-react";
-import {NavLink, useNavigate} from 'react-router-dom'
+import {Link, NavLink, useNavigate} from 'react-router-dom'
 import { useAuth } from "../context/AuthContext";
 export default function Navbar() {
     const {user,logout}=useAuth();
@@ -19,10 +19,10 @@ export default function Navbar() {
                             <Menu size={22} />
                         </label>
 
-                        <h1 className="text-xl font-bold ml-2">📝 BlogApp</h1>
+                        <Link to={"/"}><h1 className="text-xl font-bold ml-2">📝 BlogApp</h1></Link>
                     </div>
 
-                    <div className="navbar-center hidden md:flex">
+                    <div className="navbar-center hidden     md:flex">
                         <ul className="menu menu-horizontal gap-2">
                             <li>
                                 <NavLink
@@ -65,7 +65,7 @@ export default function Navbar() {
                                     Create
                                 </NavLink>
                             </li>
-                            <li>
+                            {user && <li>
                                 <NavLink
                                     to="/dashboard"
                                     className={({ isActive }) =>
@@ -77,26 +77,42 @@ export default function Navbar() {
                                 >
                                     Dashboard
                                 </NavLink>
-                            </li>
+                            </li>}
                         </ul>
                     </div>
 
-                    <div className="navbar-end gap-6">
-                        {user ? (<><div className="avatar">
-                            <div className="w-10 rounded-full">
-                                <img src={user?.user_metadata?.avatar_ur || "https://api.dicebear.com/10.x/pixel-art/svg?seed=Felix"} alt="Profile" />
-                            </div>
-                        </div>
-                        <button onClick={logout} className="btn btn-sm bg-red-700 text-md hidden md:inline-flex">
-                            Logout
-                        </button></>):(
-                           
-                            <button onClick={()=>navigate('/login')} className="btn btn-sm bg-red-700 text-md hidden md:inline-flex">
-                            Login
-                        </button>
-                          
-                        )}
-                    </div>
+                    <div className="navbar-end gap-2">
+  {user ? (
+    <>
+      <div className="avatar">
+        <div className="w-9 md:w-10 rounded-full">
+          <img
+            src={
+              user?.user_metadata?.avatar_url ||
+              "https://api.dicebear.com/10.x/pixel-art/svg?seed=Felix"
+            }
+            alt="Profile"
+          />
+        </div>
+      </div>
+
+      {/* Desktop only */}
+      <button
+        onClick={logout}
+        className="btn btn-sm bg-red-700 hidden md:inline-flex"
+      >
+        Logout
+      </button>
+    </>
+  ) : (
+    <button
+      onClick={() => navigate("/login")}
+      className="btn btn-sm bg-red-700"
+    >
+      Login
+    </button>
+  )}
+</div>
 
                 </div>
 
@@ -110,42 +126,38 @@ export default function Navbar() {
                     className="drawer-overlay"
                 ></label>
 
-                <ul className="menu p-4 w-52 min-h-full  text-base-content bg-black">
-                    <li className="mb-4 text-xl font-bold">📝 BlogApp</li>
+                <ul className="menu p-4 gap-5 w-52 min-h-full  text-base-content bg-black">
+                    <li className="mb-4 text-2xl font-bold">📝 BlogApp</li>
 
                     <li>
-                        <a>
+                        <a href="/" className="text-xl">
                             <House size={18} />
                             Home
                         </a>
                     </li>
 
                     <li>
-                        <a>
+                        <a href="/blogs" className="text-xl">
                             <NotebookPen size={18} />
                             Blogs
                         </a>
                     </li>
 
                     <li>
-                        <a>
+                        <a href="/create" className="text-xl">
                             <Plus size={18} />
                             Create
                         </a>
                     </li>
-                    <li>
-                        <a>
+                    {user && <li>
+                        <a href="/dashboard" className="text-xl">
                             <LayoutDashboard size={18}/>
                             Dashboard
                         </a>
-                    </li>
+                    </li>}
                     <div className="divider"></div>
 
-                    <li>
-                        <a className="text-error">
-                            Logout
-                        </a>
-                    </li>
+                    
                 </ul>
             </div>
         </div>
