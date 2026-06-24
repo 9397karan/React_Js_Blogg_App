@@ -1,65 +1,63 @@
+import { CalendarDays, Clock3 } from "lucide-react";
+import { Link } from "react-router-dom";
+
 export default function BlogCard({ blog }) {
   return (
-    <div className="card border border-gray-800 shadow-md hover:shadow-xl transition">
+    <Link to={`/blog/${blog.id}`}>
 
-      <figure>
-        <img
-          src={blog.image}
-          alt={blog.title}
-          className="h-56 w-full object-cover"
-        />
-      </figure>
+      <div className="card bg-zinc-900 border border-zinc-800 hover:border-primary transition hover:-translate-y-1">
 
-      <div className="card-body">
+        <figure>
 
-        <div className="badge ">
-          {blog.category}
-        </div>
+          <img
+            src={blog.image}
+            alt={blog.title}
+            className="h-56 w-full object-cover"
+          />
 
-        <h2 className="card-title">
-          {blog.title}
-        </h2>
+        </figure>
 
-        <p className="text-base-content/70">
-          {blog.desc}
-        </p>
+        <div className="card-body">
 
-        <div className="flex justify-between items-center mt-6">
+          <div className="badge badge-primary">
+            {blog.category}
+          </div>
 
-          <div className="flex items-center gap-3">
+          <h2 className="card-title line-clamp-2">
+            {blog.title}
+          </h2>
 
-            <div className="avatar">
+          <div
+            className="text-gray-400 line-clamp-2"
+            dangerouslySetInnerHTML={{
+              __html: blog.content,
+            }}
+          />
 
-              <div className="w-10 rounded-full">
+          <div className="flex justify-between mt-5 text-sm">
 
-                <img src={blog.avatar} />
+            <div className="flex items-center gap-2">
 
-              </div>
+              <Clock3 size={15} />
+
+              {blog.read_time} min
 
             </div>
 
-            <div>
+            <div className="flex items-center gap-2">
 
-              <h3 className="font-semibold">
-                {blog.author}
-              </h3>
+              <CalendarDays size={15} />
 
-              <p className="text-xs">
-                {blog.date}
-              </p>
+              {new Date(blog.created_at).toLocaleDateString()}
 
             </div>
 
           </div>
 
-          <button className="btn btn-ghost btn-sm">
-            Read More
-          </button>
-
         </div>
 
       </div>
 
-    </div>
+    </Link>
   );
 }

@@ -11,6 +11,7 @@ import {
   Undo2,
   Redo2,
 } from "lucide-react";
+import { useEffect } from "react";
 
 export default function RichTextEditor({ content, setContent,setWords }) {
   const editor = useEditor({
@@ -28,11 +29,11 @@ export default function RichTextEditor({ content, setContent,setWords }) {
     onUpdate({ editor }) {
       setContent(editor.getHTML());
       const plainText=editor.getText()
-     setWords( calculateReadTime(plainText))
+    
     },
   });
 const calculateReadTime = (text) => {
-  const words = text
+  const words = text  
     .trim()
     .split(/\s+/)
     .filter(Boolean);
@@ -41,6 +42,10 @@ const calculateReadTime = (text) => {
     words: words.length};
 };
   if (!editor) return null;
+  useEffect(()=>{
+if(!editor) return
+ setWords( calculateReadTime(editor.getText()))
+  },[editor,content])
 
 
   return (

@@ -31,7 +31,25 @@ export const AuthProvider=({children})=>{
         const {error}=await supabase.auth.signOut()
         return {error}
     }
+const saveProfile = async (user) => {
+  if (!user) return;
 
+  const { error } = await supabase
+    .from("profile")
+    .upsert({
+      id: user.id,
+      name:
+        user.user_metadata?.full_name ||
+        user.user_metadata?.name ||
+        "",
+      email: user.email,
+      avatar: user.user_metadata?.avatar_url || "",
+    });
+
+  if (error) {
+    console.log("Profile Error:", error);
+  }
+};
      useEffect(() => {
   
     const getSession = async () => {
@@ -41,6 +59,9 @@ export const AuthProvider=({children})=>{
 
       setSession(session);
       setUser(session?.user ?? null);
+      if (session?.user) {
+    await saveProfile(session.user);
+  }
       setLoading(false);
     };
 
